@@ -269,7 +269,7 @@ body {
 
           <div id="reveal1">
 
-          <p> This February, I had a chance to visit Colombia for a school trip as part of an international economic development course at the University of Michigan’s Ford School of Public Policy, where I am a grad student. Our group project focused on sustainable energy, and for it we interviewed a wide range of policy makers, from well-known international organizations to local government officials.  <br><br>
+          <p> This February, I had a chance to visit Colombia for a school trip as part of an international economic development course at the University of Michigan&rsquo;s Ford School of Public Policy, where I am a grad student. Our group project focused on sustainable energy, and for it we interviewed a wide range of policy makers, from well-known international organizations to local government officials.  <br><br>
             Over the week, the biggest thing that I learned is that we cannot talk about Colombia without a map. If you look at Colombia from numbers, Colombia is a middle&minus;income country with around 50 million population. But if you look closer, Colombia is a combination of many different countries&mdash;differences across regions are profound. <br> <br>
             Colombia is hardly the only country facing the challenge of inequality. In the US, for instance, studies show that income inequality is rising, middle&minus;class is diminishing, and between 1989 and 2016, the wealth gap between the richest and poorer families doubled.  <br> <br>
             Boston suffers from the worst income inequality in the United States. A Brookings study mentioned that the top five percent of households in these cities earned income at least 18 times as high as bottom 20 percent of households.   <br> <br>
@@ -293,15 +293,14 @@ body {
 
           <p> What about Boston? Here is a map that shows the net difference between median household income in 2017 and 2019: </p>
 
-          <button id="button" onclick="myFunction()">Show/Hide Median Household Income 2017-2019</button> <br><br>
+          <!-- <button id="button" onclick="myFunction()">Show/Hide Median Household Income 2017-2019</button> <br><br> -->
+
+
+          <div id="vis"></div> <br>
+
+             <p> As we can see from the map, median household income increased in most places in Boston from 2017 to 2019. But even within the same neighborhood, some census tracts are considerably better off than others. The scatter plot below gives you a clearer picture of the changes of income overall. Feel free to brush the scatter plot and explore the changes. <br><br> </p>
 
           <div id="vis_two"></div> <br><br>
-
-
-          <div id="vis"></div>
-
-
-          <p> As we can see from the map, median household income increased in most places in Boston from 2017 to 2019. But even within the same neighborhood, some census tracts are considerably better off than others. <br><br>
 
 
           </div>
@@ -384,7 +383,7 @@ body {
             <p>Unfortunately, this is not the end of our story. Coronavirus is hitting people in poverty the hardest. The timeline below shows a series of coronavirus related events in Boston</p>
           </div>
 
-          <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1dC_77gbdqLcZb96TN_07ke1QkQVIlGlZXrks6mSiMpc&font=Bevan-PontanoSans&lang=en&initial_zoom=2&height=400' width='100%' height='400' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+          <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1dC_77gbdqLcZb96TN_07ke1QkQVIlGlZXrks6mSiMpc&font=Amatic-Andika&lang=en&initial_zoom=2&height=550' width='100%' height='550' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
 
 
           <div class="spacer mentalhealth"></div>
@@ -404,7 +403,7 @@ body {
 
           <p> As coronavirus spreads across the globe, it deepens inequality. Many low-income residents could not afford to stay in safe, stable, and controllable environment, while those who are wealthier can stay at home and limit their exposure to coronavirus. In addition, people in certain industries are more likely to get sick. For example, in Massachusetts, there are now 24 workers from Massachusetts Bay Transportation Authority tested positive for COVID-19. Among them, more than half are bus drivers, the others include train drivers and inspectors. <br> <br>
 
-          Boston announced its first confirmed case of coronavirus on February 1st. On March 15th, Mayor Martin J. Walsh announced the Boston Public Health Commission (BPHC) declares a public health emergency in the City of Boston. From the charts below, you can see that in general,  requests of non-emergency services decreased significantly in March, and transportation services are hit hardest by coronavirus. </p>
+          Boston announced its first confirmed case of coronavirus on February 1st. On March 15th, Mayor Martin J. Walsh announced the Boston Public Health Commission (BPHC) declared a public health emergency in the City of Boston. In the charts below, I compare reports of non-emergency services in January, Feburary, and March this year with previous years (2017, 2018, and 2019). You could see that number of non-emergency reports are relatively the same in January and Feburary. But in March 2020, the number of reports significantly decreased. </p>
 
           <div id="cases"></div><br> <br>
 
@@ -449,7 +448,7 @@ body {
 </div>
 
 
-<script>
+<!-- <script> 
 function myFunction() {
   var x = document.getElementById("vis");
   if (x.style.display === "none") {
@@ -458,7 +457,8 @@ function myFunction() {
     x.style.display = "none";
   }
 }
-</script>
+</script> 
+-->
 
 
 
@@ -484,7 +484,7 @@ function myFunction() {
     new ScrollMagic.Scene({
               triggerElement: "#reveal2",
               triggerHook: 0.9, // show, when scrolled 10% into view
-              duration: "90%", // hide 10% before exiting view (50% + 10% from bottom)//control the distance between "start" and end
+              duration: "95%", // hide 10% before exiting view (50% + 10% from bottom)//control the distance between "start" and end
               offset: 50 // move trigger to center of element
             })
             .setClassToggle("#reveal2", "visible") // add class to reveal
@@ -582,7 +582,7 @@ function myFunction() {
 
 <div id="vis"></div>
 <script>
-     let jsonSpec="IncomeCharts.json";
+     let jsonSpec="detail_income.json";
      vegaEmbed('#vis', jsonSpec,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
      }).catch(console.error);
 </script>
@@ -590,7 +590,7 @@ function myFunction() {
 
 <div id="vis_two"></div>
 <script>
-     let jsonSpec2="detail_income.json";
+     let jsonSpec2="IncomeDiff_Scatterplot.json";
      vegaEmbed('#vis_two', jsonSpec2,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
      }).catch(console.error);
 </script>
@@ -598,7 +598,7 @@ function myFunction() {
 
 <div id="vis_three"></div>
 <script>
-     let jsonSpec3="MentalHealth.json";
+     let jsonSpec3="MentalHealth_N.json";
      vegaEmbed('#vis_three', jsonSpec3,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
      }).catch(console.error);
 </script>
@@ -615,7 +615,7 @@ function myFunction() {
 
 <div id="cases"></div>
 <script>
-     let jsonSpec5="change_cases.json";
+     let jsonSpec5="change_cases_n.json";
      vegaEmbed('#cases', jsonSpec5,{theme: 'latimes',"renderer":"svg"}).then(function(result) {
      }).catch(console.error);
 </script>
